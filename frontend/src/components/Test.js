@@ -4,7 +4,8 @@ const Test = () => {
     return (
         <div>
         <h1>Hello, this is a test component.</h1>
-        { fetch_test() }
+        <button onClick={() => fetch_test()}>Test button</button>
+        <h1 id="song"></h1>
         </div>
     );
 }
@@ -14,12 +15,14 @@ const fetch_test = () => {
         method: 'GET',
         mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
-      };
-      let value;
+    };
+    let value;
     fetch(`http://localhost:3001/`, options)
         .then(res => res.json())
         .then(data => {
             console.log(data) // log data in browser inspect menu
+            let song = document.getElementById('song');
+            song.innerHTML = data.current_song;
         });
 }
 
