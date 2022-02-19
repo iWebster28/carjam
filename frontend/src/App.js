@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Test from './components/Test';
+import MicInput from './components/MicInput';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       </header>
 
       <Test />
+      <MicInput/>
 
     </div>
   );
