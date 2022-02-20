@@ -16,7 +16,6 @@ const fetch_test = () => {
         mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
     };
-    let value;
     fetch(`http://localhost:3001/`, options)
         .then(res => res.json())
         .then(data => {

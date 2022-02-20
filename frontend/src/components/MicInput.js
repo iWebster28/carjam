@@ -1,7 +1,5 @@
 import React from 'react';
 import { ReactMic } from 'react-mic';
-
-
 export default class MicInput extends React.Component {
   constructor(props) {
     super(props);
@@ -24,6 +22,7 @@ export default class MicInput extends React.Component {
  
   onStop(recordedBlob) {
     console.log('recordedBlob is: ', recordedBlob);
+    fetch_audio(recordedBlob);
   }
  
   render() {
@@ -41,4 +40,29 @@ export default class MicInput extends React.Component {
       </div>
     );
   }
+}
+
+const fetch_audio = (recordedBlob) => {
+  let formData = new FormData();
+  // console.log(recordedBlob.blobURL.replace('blob:', ''));
+
+  // Fetch audio data from react-mic
+  fetch(recordedBlob.blobURL)
+    .then(r => r.blob())
+    .then(audioBlob => {
+      formData.append('file', audioBlob, `recording-${recordedBlob.blobURL.split('/')[3]}.webm`);
+      console.log(audioBlob);
+    
+      const options = {
+        method: 'POST',
+        mode: 'cors',
+        body: formData,
+      };
+
+      // Upload audio to backend 
+      fetch(`http://localhost:3001/audioUpload`, options)
+          .then(res => console.log(res))
+          .catch((err) => ('Error occurred', err)
+      )
+    });
 }
