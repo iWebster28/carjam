@@ -7,9 +7,11 @@ const cors_options = () => {
     return {
       origin: `http://localhost:${process.env.FRONTEND_PORT}`, // frontend port
     };
-  };
-
+};
 app.use(cors(cors_options()));
+
+// Routes
+require('./routes/POST-getAudio')(app);
 
 app.listen(process.env.BACKEND_PORT, () => {
     console.log(`Backend listening on port ${process.env.BACKEND_PORT}`);
