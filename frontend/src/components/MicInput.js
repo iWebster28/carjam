@@ -69,7 +69,7 @@ const fetch_audio = (recordedBlob) => {
       };
 
       // Upload audio to backend 
-      fetch(`http://localhost:3001/audioUpload`, options)
+      fetch(`http://10.0.0.13:3001/audioUpload`, options)
           .then(res => res.json())
           .then(data => {
               console.log(data.spotify_url);
