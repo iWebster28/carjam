@@ -1,5 +1,6 @@
 import React from 'react';
 import { ReactMic } from 'react-mic';
+import RecordButton from './RecordButton';
 export default class MicInput extends React.Component {
   constructor(props) {
     super(props);
@@ -8,12 +9,16 @@ export default class MicInput extends React.Component {
     }
   }
  
-  startRecording = () => {
-    this.setState({ record: true });
-  }
+  // startRecording = () => {
+  //   this.setState({ record: true });
+  // }
  
-  stopRecording = () => {
-    this.setState({ record: false });
+  // stopRecording = () => {
+  //   this.setState({ record: false });
+  // }
+
+  toggleRecording = () => {
+    this.setState({record: !this.state.record});
   }
  
   onData(recordedBlob) {
@@ -35,8 +40,10 @@ export default class MicInput extends React.Component {
           onData={this.onData}
           strokeColor="#000000"
           backgroundColor="#FF4081" />
-        <button onClick={this.startRecording} type="button">Start</button>
-        <button onClick={this.stopRecording} type="button">Stop</button>
+        {/* <button onClick={this.startRecording} type="button">Start</button>
+        <button onClick={this.stopRecording} type="button">Stop</button> */}
+        {/* <button onClick={this.toggleRecording} type="button">Start</button> */}
+        <RecordButton clickFn={this.toggleRecording}/>
       </div>
     );
   }

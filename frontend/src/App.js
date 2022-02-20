@@ -14,16 +14,12 @@ function App() {
         </h1>
 
         <h3 className="tagline">
-          Tagline
+          A car-jamming  music-playing  energy-level  sentimental-analysis  music-picker
         </h3>
       </header>
 
-
-      <RecordButton />
-      
-      <Test />
+      <br></br>
       <MicInput/>
-
     </div>
   );
 }
