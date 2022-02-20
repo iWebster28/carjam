@@ -1,8 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Test from './components/Test';
-import RecordButton from './components/RecordButton';
 import MicInput from './components/MicInput';
 
 function App() {
@@ -16,16 +14,17 @@ function App() {
         <h3 className="tagline">
           A car-jamming  music-playing  energy-level  sentimental-analysis  music-picker
         </h3>
+        {/* <h4>Step 1. Click "Record" to allow CarJam to listen to your environment. Click again to stop.</h4>
+        <h4>Step 2. Enjoy your spotify suggestion!</h4> */}
       </header>
+
 
       <br></br>
       <MicInput/>
-
-      <iframe src="https://open.spotify.com/embed/track/3wz6PzV1b7cEFPPSz76H8S" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <br></br>
+      <iframe id="player" src="https://open.spotify.com/embed/track/3wz6PzV1b7cEFPPSz76H8S" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
   );
 }
 
 export default App;
-
-//<img src={logo} className="App-microphone" alt="microphone" />

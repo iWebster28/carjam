@@ -17,17 +17,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 module.exports = (app) => {
-    // app.post('/getAudio', (req, res, err) => {
-    //     const body = req.body;
-    //     console.log(`from client: ${body}`);
-    //     return res.status(200).json({"Status": "OK"});
-    // });
-
-    app.post('/audioUpload', upload.single('file'), (req, res) => {
+    app.post('/audioUpload', upload.single('file'), async (req, res) => {
         // console.log(req.body);
         console.log(req.file);
-        get_audio_analysis(req.file.path);
-        res.send({ message: 'Successfully uploaded audio file.' });
+        await get_audio_analysis(req.file.path) // Analyze audio
+          .then(url => {
+            res.status(200).json({ message: 'Successfully uploaded audio file.', spotify_url: url }); // Return Spotify URL to frontend
+          });
     })
 };
 
@@ -42,5 +38,6 @@ async function get_audio_analysis(audio_path){
   console.log(`Num: ${num}`);
   url = await spotify.getRecommendations(num);
   console.log(`URL: ${url}`);
-  // return url;
+  // let url = "https://open.spotify.com/embed/track/0kD586ste6xyDRqUYhVlCh"; // example
+  return url;
 }

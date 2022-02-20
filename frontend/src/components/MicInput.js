@@ -44,6 +44,7 @@ export default class MicInput extends React.Component {
         {/* <button onClick={this.startRecording} type="button">Start</button>
         <button onClick={this.stopRecording} type="button">Stop</button> */}
         {/* <button onClick={this.toggleRecording} type="button">Start</button> */}
+        <br></br>
         <RecordButton clickFn={this.toggleRecording}/>
       </div>
     );
@@ -69,7 +70,12 @@ const fetch_audio = (recordedBlob) => {
 
       // Upload audio to backend 
       fetch(`http://localhost:3001/audioUpload`, options)
-          .then(res => console.log(res))
+          .then(res => res.json())
+          .then(data => {
+              console.log(data.spotify_url);
+              let player = document.getElementById('player');
+              player.src = data.spotify_url;
+          })
           .catch((err) => ('Error occurred', err)
       )
     });
