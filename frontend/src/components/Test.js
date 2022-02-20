@@ -3,7 +3,6 @@ import React from 'react';
 const Test = () => {
     return (
         <div>
-        <h1>Hello, this is a test component.</h1>
         <button onClick={() => fetch_test()}>Test button</button>
         <h1 id="song"></h1>
         </div>
