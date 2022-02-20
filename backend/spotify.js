@@ -1,8 +1,8 @@
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
-let seed_artists = '5he5w2lnU9x7JFhnwcekXX';
-let seed_genres = 'classical%2Cpop%2Cacoustic';
-let seed_tracks = '6JyuJFedEvPmdWQW0PkbGJ';
+let seed_artists = '4NHQUGzhtTLFvgF5SZesLK';
+let seed_genres = 'pop%2Cacoustic';
+let seed_tracks = '1o2NpYGqHiCq7FoiYdyd1x';
 let target_popularity = '90';
 let target_energy = '0.2';
 let target_liveness = '0.2';
@@ -23,8 +23,10 @@ const getRecommendations = async (num) => {
       return null;
     } 
 
-
-
+    seed_artists = data.tracks[0].artists[0].id;
+    seed_tracks = data.tracks[0].id;
+    console.log(`seed_artists:${seed_artists}`);
+    console.log(`seed_tracks:${seed_tracks}`);
     return data.tracks[0].external_urls.spotify;
   };
 
