@@ -70,7 +70,7 @@ const jwt = require('jsonwebtoken');
 const getRecommendations = async () => {
     const url = 'https://api.spotify.com/v1/recommendations';
   
-    let token = 'BQCsmGf1VZeo5kavPXhiwpxTGvvbwzLmuMUrVqBbHoM82SqsULLetYAxA8g5iZ92SSXV1Mwz4QhA9gdmatemP6tZ2GOO0dki6mhBQaxLOK-SaPKtCigGyMcdeQm0C9jL5lebIfHLIudljkxsSrDcBpmn-v14S6LmLXU'
+    let token = 'BQCd8dIRpy_5oaJbxmeFnUNIHqSfu6fYUy7HR4W24q8sSORi3JRWNeSZrS-xlHTVvJjrDnjDUHLaIp8mSF2d27xyEshSL9X4bT9t36CWbiQo9ygyE2u-boN2hRoFlYO-6qx4x_LfC-0FTGz38mDxhoDWsiYmlaBRM3Y'
     const {data} = await axios.get(`${url}?limit=1&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry&seed_tracks=0c6xIDDpzE81m2q797ordA&target_energy=0.5&target_liveness=0.5`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -81,7 +81,9 @@ const getRecommendations = async () => {
         console.log("No result!");
         
     }else{
-        console.log(data.tracks[0].external_urls.spotify);
+        spotifyURL = (data.tracks[0].external_urls.spotify);
+        spotifyURL = spotifyURL.replace('/track/','/embed/track/');
+        console.log(spotifyURL);
     }
   };
 
