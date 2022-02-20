@@ -105,6 +105,6 @@ dist
 
 # ENV
 backend/.env
-
+backend/uploads
 
 .vscode
