@@ -40,12 +40,14 @@ export default class MicInput extends React.Component {
           onStop={this.onStop}
           onData={this.onData}
           strokeColor="#000000"
-          backgroundColor="#FF4081" />
+          backgroundColor="#2e7d32" />
         {/* <button onClick={this.startRecording} type="button">Start</button>
         <button onClick={this.stopRecording} type="button">Stop</button> */}
         {/* <button onClick={this.toggleRecording} type="button">Start</button> */}
         <br></br>
+        <br></br>
         <RecordButton clickFn={this.toggleRecording}/>
+        <br></br>
       </div>
     );
   }
@@ -75,6 +77,7 @@ const fetch_audio = (recordedBlob) => {
               console.log(data.spotify_url);
               let player = document.getElementById('player');
               player.src = data.spotify_url;
+              player.click();
           })
           .catch((err) => ('Error occurred', err)
       )
