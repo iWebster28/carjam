@@ -12,6 +12,7 @@ app.use(cors(cors_options()));
 
 // Routes
 require('./routes/POST-audioUpload')(app);
+require('./routes/GET-home')(app);
 
 app.listen(process.env.BACKEND_PORT, () => {
     console.log(`Backend listening on port ${process.env.BACKEND_PORT}`);
