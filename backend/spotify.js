@@ -27,7 +27,12 @@ const getRecommendations = async (num) => {
     seed_tracks = data.tracks[0].id;
     console.log(`seed_artists:${seed_artists}`);
     console.log(`seed_tracks:${seed_tracks}`);
-    return data.tracks[0].external_urls.spotify;
+    spotify_url = data.tracks[0].external_urls.spotify;
+    //console.log(`spotify_url:${spotify_url}`);
+    index_track = spotify_url.search('/track/');
+    embed_url = spotify_url.slice(0, index_track)+'/embed'+spotify_url.slice(index_track);
+    //console.log(`embed_url:${embed_url}`);
+    return embed_url;
   };
 
   module.exports={getRecommendations};
