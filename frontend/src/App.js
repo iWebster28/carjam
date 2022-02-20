@@ -3,6 +3,7 @@ import './App.css';
 
 import Test from './components/Test';
 import RecordButton from './components/RecordButton';
+import MicInput from './components/MicInput';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
 
       <RecordButton />
       
+      <Test />
+      <MicInput/>
 
     </div>
   );
