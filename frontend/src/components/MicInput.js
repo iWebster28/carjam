@@ -35,6 +35,7 @@ export default class MicInput extends React.Component {
       <div>
         <ReactMic
           record={this.state.record}
+          channelCount={1}
           className="sound-wave"
           onStop={this.onStop}
           onData={this.onData}
