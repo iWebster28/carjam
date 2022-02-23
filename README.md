@@ -1,5 +1,9 @@
 # carjam
 
+## Frontend
+
+![Frontend](frontend.png)
+
 ## Setup
 
 1. Install Node.js
