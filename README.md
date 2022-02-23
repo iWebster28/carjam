@@ -16,11 +16,11 @@
 
 3.1 Create a .env file with API keys and ports.
 
-4. run backend (runs on port 3000)
+4. run backend (runs on port 3001)
 `node server.js`
 5. run frontend
-`npm run start` (runs on port 3001)
-6. launch browser at https://localhost:3001
+`npm run start` (runs on port 3000)
+6. launch browser at https://localhost:3000
 
 
 ## Audio Resources 
