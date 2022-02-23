@@ -34,9 +34,9 @@ Get a spotify OAuth token from developer.spotify.com and set
 async function get_audio_analysis(audio_path){
   transcription = await stt.stt(filename = audio_path);
   console.log(`Transcription: ${transcription}`);
-  num = await sentience.sentience(transcription);
+  const num = await sentience.sentience(transcription);
   console.log(`Num: ${num}`);
-  url = await spotify.getRecommendations(num);
+  const url = await spotify.getRecommendations(num);
   console.log(`URL: ${url}`);
   // let url = "https://open.spotify.com/embed/track/0kD586ste6xyDRqUYhVlCh"; // example
   return url;
